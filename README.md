@@ -14,3 +14,23 @@
 ```vcpkg --version```을 사용해 설치가 잘 되었는지 확인한다.
 잘 되었다면, ```vcpkg integrate install```을 활용해 vcpkg의 위치를 전역 경로로 등록해준다.
 이를 수행하는 이유는, vcpkg에서 설치한 라이브러리를 Visual Studio 환경에서 사용 가능하도록 통합해주기 위함
+
+## cmake 설치하기
+
+**Windows**에서는 ```scoop install ninja``` 를 통해 닌자 설치
+**Mac**에서는 ```brew install ninja``` 를 통해 닌자 설치
+
+## Ninja 설치하기
+
+### Ninja 설치
+**Windows**에서는 ```scoop install ninja``` 를 통해 닌자 설치
+**Mac**에서는 ```brew install ninja``` 를 통해 닌자 설치
+
+# 빌드 방법
+```cmake -S . -B build -G "Ninja"```
+CMakeLists.txt를 읽고, /build폴더에 Ninja 빌드 파일 만들기!
+
+```cmake --build build```
+Ninja를 사용해 소스 코드 컴파일하기
+
+이후 ```./build/src/hello.exe```를 실행하면 됨!
