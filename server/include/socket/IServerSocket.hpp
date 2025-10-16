@@ -1,10 +1,9 @@
 #pragma once
-#include <cstdint>
 
-class ISocketServer {
+class IServerSocket {
 public :
-    virtual ~ISocketServer() = default;
+    virtual ~IServerSocket() = default;
 
-    virtual void start(int port) = 0;
+    virtual int start() = 0;
     virtual void stop() = 0;
-}
+};
