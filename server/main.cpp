@@ -1,12 +1,14 @@
 #include <iostream>
-#include "util/NumberUtil.h"
+#include "socket/MacServerSocket.hpp"
 
 using namespace std;
 
 int main() {
-    cout << "hello, world!" << endl;
+    MacServerSocket* socket = MacServerSocket::getInstance();
 
-    cout << NumberUtil::sum(5, 3) << endl;
+    socket->start();
+
+    socket->stop();
 
     return 0;
 }
