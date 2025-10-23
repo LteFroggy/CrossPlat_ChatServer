@@ -1,4 +1,4 @@
-#include "socket/MacServerSocket.hpp"
+#include "socket/MacServerSocket.h"
 
 #include <atomic>
 #include <thread>
