@@ -36,7 +36,6 @@ target_include_directories(server_socket PUBLIC ${PUBLIC_INC})
 # 실행 파일 (main.cpp 위치에 맞게 경로 조정)
 add_executable(server
     main.cpp
-        src/socket/MacServerSocket.cpp
 )
 
 # 링크
