@@ -1,11 +1,6 @@
-cmake_minimum_required(VERSION 3.20)
-project(server LANGUAGES CXX)
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 # 공용 헤더 경로 공개
-set(PUBLIC_INC ${CMAKE_SOURCE_DIR}/include)
+set(server_root ${CMAKE_SOURCE_DIR}/server)
+set(PUBLIC_INC ${server_root}/include)
 
 # 1) 유틸 라이브러리
 # 여기서 util이라는 이름으로 NumberUtil.cpp를 컴파일해두겠다 -> libutil.a라는 정적 파일로 미리 빌드해둠.
@@ -35,7 +30,7 @@ target_include_directories(server_socket PUBLIC ${PUBLIC_INC})
 
 # 실행 파일 (main.cpp 위치에 맞게 경로 조정)
 add_executable(server
-    main.cpp
+    ${server_root}/main.cpp
 )
 
 # 링크
