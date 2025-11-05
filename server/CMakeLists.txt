@@ -15,7 +15,7 @@ target_include_directories(util PUBLIC ${PUBLIC_INC})
 # 2) 플랫폼별 소켓 라이브러리 선택
 if (WIN32)
     add_library(server_socket
-        src/socket/WinServerSocket.cpp
+            src/socket/WinSocketMaker.cpp
     )
     # WinSock2의 API 버전 명시
     target_compile_definitions(server_socket PRIVATE _WIN32_WINNT=0x0A00)
@@ -23,7 +23,7 @@ if (WIN32)
     target_link_libraries(server_socket PRIVATE ws2_32)
 else () # Mac OS
     add_library(server_socket
-        src/socket/MacServerSocket.cpp
+            src/socket/MacSocketMaker.cpp
     )
 endif()
 target_include_directories(server_socket PUBLIC ${PUBLIC_INC})
