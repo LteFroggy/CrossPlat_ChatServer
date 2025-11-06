@@ -1,4 +1,5 @@
 #include "activate/ServerActivator.h"
+#include "handler/TestHandler.h"
 
 #include <iostream>
 #include <thread>
@@ -31,6 +32,7 @@ int ServerActivator::activateServer(int socket_fd) {
 
     // Accept를 위한 루프 시작
     acceptThread = thread(&ServerActivator::startAcceptLoop, this, socket_fd);
+    cout << "Accept Thread Start!" << endl;
 
     return 0;
 }
@@ -83,7 +85,7 @@ void ServerActivator::startAcceptLoop(int socket_fd) {
         }
 
         // 접속한 클라이언트는 분리된 스레드에서 처리
-        thread clientThread(handleClient, client_fd);
+        thread clientThread(TestHandler::handleClient, client_fd);
         clientThread.detach();
     }
 }
